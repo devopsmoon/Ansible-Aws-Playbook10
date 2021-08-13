@@ -27,7 +27,6 @@
         region: "{{region}}"
         az: "{{zone1}}"
         cidr: "{{pubsub1cidr}}"
-        state: present
         map_public: yes
         tags:
           Name: vprofile-pubsubnet1
@@ -63,7 +62,6 @@
         region: "{{region}}"
         az: "{{zone1}}"
         cidr: "{{pubsub1cidr}}"
-        state: present
         tags:
           Name: vprofile-pubsubnet1
       register: prisub1_out
@@ -74,7 +72,6 @@
         region: "{{region}}"
         az: "{{zone2}}"
         cidr: "{{prisub2cidr}}"
-        state: present
         tags:
           Name: vprofile-pubsubnet2
       register: prisub2_out
@@ -108,6 +105,8 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{igw_out.gateway_id}}"
+        tags:
+          Name: vprofile-pubrt
       register: pubrt_out
 
     - name: creating the nat gateway
@@ -130,6 +129,8 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{natgw_out.nat_gateway_id}}"
+        tags:
+          Name: vprofile-prirt
       register: prirt_out
 
     - debug:
