@@ -10,6 +10,9 @@
     - name: creating the vpc_output.var variables
       include_vars: vars/vpc-output.var
 
+    - name: creating the vpc_setup variables
+      include_vars: vars/vpc_setup
+
     - name: creating the login key for bastion host
       ec2_key:
         name: vprofile-key
