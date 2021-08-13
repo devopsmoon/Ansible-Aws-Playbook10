@@ -27,6 +27,7 @@
         region: "{{region}}"
         az: "{{zone1}}"
         cidr: "{{pubsub1cidr}}"
+        state: present
         map_public: yes
         tags:
           Name: vprofile-pubsubnet1
@@ -62,6 +63,7 @@
         region: "{{region}}"
         az: "{{zone1}}"
         cidr: "{{pubsub1cidr}}"
+        state: present
         tags:
           Name: vprofile-pubsubnet1
       register: prisub1_out
@@ -72,6 +74,7 @@
         region: "{{region}}"
         az: "{{zone2}}"
         cidr: "{{prisub2cidr}}"
+        state: present
         tags:
           Name: vprofile-pubsubnet2
       register: prisub2_out
@@ -98,6 +101,7 @@
       ec2_vpc_route_table:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
+        state: present
         subnets:
           - "{{pubsub1_out.subnet.id}}"
           - "{{pubsub2_out.subnet.id}}"
@@ -122,6 +126,7 @@
       ec2_vpc_route_table:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
+        state: present
         subnets:
           - "{{prisub1_out.subnet.id}}"
           - "{{prisub2_out.subnet.id}}"
