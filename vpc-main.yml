@@ -14,8 +14,8 @@
         cidr_block: "{{vpccidr}}"
         state: present
         tenancy: default
-        dns_support: false
-        dns_hostnames: false
+        dns_support: true
+        dns_hostnames: true
       register: vpcout
 
     - debug:
