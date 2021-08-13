@@ -16,7 +16,7 @@
     - name: creating the login key for bastion host
       ec2_key:
         name: vprofile-key
-        region: "{region}}"
+        region: "{{region}}"
         state: present
       register: keyout
 
