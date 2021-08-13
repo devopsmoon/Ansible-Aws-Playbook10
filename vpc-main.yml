@@ -144,7 +144,7 @@
         - prisub3_out.subnet.id
         - igw_out.gatway_id
         - pubrt_out.route_table.id
-        - natgw_out.gateway_id
+        - natgw_out.nat_gateway_id
         - prirt_out.route_table.id
     - set_fact:
         vpcoutid: "{{vpcout.vpc.id}}"
