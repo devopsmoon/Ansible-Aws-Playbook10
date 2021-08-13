@@ -34,6 +34,7 @@
       ec2_group:
         name: vprofile-SG
         description: allow port 22 from every where
+        vpc_id: "{{vpcoutid}}"
         region: "{{region}}"
         state: present
         rules:
