@@ -114,6 +114,7 @@
       ec2_vpc_nat_gateway:
         region: "{{region}}"
         subnet_id: "{{pubsub1_out.subnet.id}}"
+        if_exist_do_not_create: true
         wait: yes
         wait_timeout: 300
       register: natgw_out
