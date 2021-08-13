@@ -15,7 +15,7 @@
 
     - name: creating the login key for bastion host
       ec2_key:
-        name: vprofile-key
+        name: vprofile1-key
         region: "{{region}}"
         state: present
       register: keyout
@@ -26,7 +26,7 @@
     - name:
       copy:
         content: "{{keyout.key.private_key}}"
-        dest: "./vprofile-key.pem"
+        dest: "./vprofile1-key.pem"
         mode: 0600
       when: keyout.changed
 
@@ -45,7 +45,7 @@
 
     - name: creating the bastion host
       ec2:
-        key_name: vprofile-key
+        key_name: vprofile1-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{bastion_ami}}"
