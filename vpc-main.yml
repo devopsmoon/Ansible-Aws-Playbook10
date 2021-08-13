@@ -62,7 +62,7 @@
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         az: "{{zone1}}"
-        cidr: "{{pubsub1cidr}}"
+        cidr: "{{prisub1cidr}}"
         state: present
         tags:
           Name: vprofile-pubsubnet1
@@ -148,7 +148,7 @@
         - prisub1_out.subnet.id
         - prisub2_out.subnet.id
         - prisub3_out.subnet.id
-        - igw_out.gatway_id
+        - igw_out.gateway_id
         - pubrt_out.route_table.id
         - natgw_out.nat_gateway_id
         - prirt_out.route_table.id
